@@ -56,7 +56,7 @@ func openingScreen(){
         print("""
         Welcome to the world of magic! 🧙‍♀️🧌
 
-        You have been chosen to embark on an epic journey as young wizard on the path to becoming a master of the arcane arts. Your adventures will take you throught forests 🌲, mountain 🏔️, and dungeons 🏰, where you will face challenges, make allies and fight enemies.
+        You have been chosen to embark on an epic journey as young wizard on the path to becoming a master of the arcane arts. Your adventures will take you throught forests 🌲, mountain  🏔️, and dungeons 🏰, where you will face challenges, make allies and fight enemies.
 
         Press [return] to continue:
         """)
