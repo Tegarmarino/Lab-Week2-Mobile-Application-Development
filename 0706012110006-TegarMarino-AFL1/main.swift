@@ -13,11 +13,11 @@ var input: String? = nil
 
 
 //User variable
-var playerUsername: String?
-var playerHealth = 100
+var playerHealth = 85
 var playerMana = 50
-var playerPotion = 100
-var playerElixir = 5
+var playerHealthPotion = 5
+var playerManaPotion = 5
+var playerUsername: String?
 //physicalAttack = 5 attack
 //meteor = +50 attack & -15 mana
 //shield = +1 attack shield & -10 mana
@@ -26,14 +26,26 @@ var playerElixir = 5
 
 
 //Monster variable
+var monsterName: [String] = ["Troll", "Golem"]
 var trollHealth = 1000
+var trollAmount = 1
 var golemHealth = 1000
+var golemAmount = 1
 
+//var playerSkills: [String: String] = [:]
+//playerSkills["physicalAttack"] = "Blade Slice"
+//playerSkills["skillOne"] = "Burning Fire"
+//playerSkills["skillTwo"] = "Lava Smoke"
+//playerSkills["skillThree"] = "Fire of Hell"
+
+var playerSkills = ["physicalAttack" : "Blade Slice", "skill" : "Meteor attack", "defend" : "Shield"]
 
 //Pemanggilan func
 openingScreen()
 welcomeScreen()
 journeyScreen()
+
+
 
 
 
@@ -61,7 +73,7 @@ func welcomeScreen(){
     while true {
         print("May I know your name, a young wizard?")
         if let input = readLine() {
-            if input.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil {
+            if input.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil && input != ""{
                 playerUsername = input
                 break
             }
@@ -131,8 +143,8 @@ func playerStatsScreen(){
         - Shield. 10pt of MP. Block enemy's attack in 1 turn
 
         Items:
-        - Potion x\(playerPotion). Heal 20pt of your HP.
-        - Eixir x\(playerElixir). Add 10pt of your MP.
+        - Potion x\(playerHealthPotion). Heal 20pt of your HP.
+        - Eixir x\(playerManaPotion). Add 10pt of your MP.
         
         Press [return] to go back:
         """)
@@ -149,13 +161,22 @@ func healWoundScreen(){
     while true {
         print("""
         Your health is \(playerHealth).
-        You have \(playerPotion) potions.
+        You have \(playerHealthPotion) potions.
         
         Are you sure want to use 1 potion to heal wound [Y/N]
         """)
         input = readLine()?.uppercased()
         if input == "Y"{
-            if playerPotion == nil{
+            if playerHealthPotion > 0 {
+                if playerHealth == 100 {
+                    
+                } else if playerHealth < 100 {
+                    healing()
+                    if playerHealth > 100 {
+                        playerHealth = 100
+                    }
+                }
+            } else {
                 while true {
                     print("""
                     You don't have any potion left. Be carful of your next journey.
@@ -169,22 +190,11 @@ func healWoundScreen(){
                         continue
                     }
                 }
-            } else {
-                if playerHealth < 100 {
-                    playerHealth += 20
-                    playerPotion -= 1
-                    print("""
-                    Your HP is now \(playerHealth)
-                    You have \(playerPotion) Potion left.
-                    
-                    """)
-                } else {
-                    print("Your health is max")
-                    playerHealth = 100
-                }
             }
         } else if input == "N"{
             break
+        } else {
+            print("Wrong input !!")
         }
     }
 }
@@ -197,7 +207,7 @@ func forestOfTrollScreen (){
     while true{
         print("""
         
-        😈 Name: Troll x1
+        😈 Name: \(monsterName[0]) x\(trollAmount)
         😈 Health: \(trollHealth)
         
         Choose your action:
@@ -215,11 +225,13 @@ func forestOfTrollScreen (){
         input = readLine()
         
         if input == "1" {
-            if playerHealth > 20 && trollHealth > 0 {
+            if playerHealth > 0 && trollHealth > 0 {
                 trollHealth -= 5
                 playerHealth -= 2
+                if let physicalAttack = playerSkills["physicalAttack"] {
+                    print("You attacked monster with \(physicalAttack) by 5 damage")
+                }
                 print("""
-                You attacked monster by 5
                 
                 You attacked by monster, your health now is \(playerHealth)
                 """)
@@ -228,23 +240,24 @@ func forestOfTrollScreen (){
                 exit(1)
             } else if trollHealth <= 0 && playerHealth > 0 {
                 print("You win from the battle")
-                break
             } else if trollHealth <= 0 && playerHealth <= 0 {
                 print("You died & the match is draw!")
                 exit(1)
             }
         } else if input == "2" {
-            if playerHealth > 20 && trollHealth > 0 && playerMana > 0 {
+            if playerHealth > 0 && trollHealth > 0 && playerMana > 0 {
                 trollHealth -= 50
-                playerHealth -= 2
-                playerMana -= 15
+                meteorAttack()
+                if let skill = playerSkills["skill"]{
+                    print("You attacked monster with \(skill) by 50 damage")
+                }
                 print("""
-                You attacked monster by 5
                 
                 You attacked by monster, your health now is \(playerHealth) and your mana is \(playerMana)
                 """)
             } else if playerMana <= 0 {
                 playerHealth -= 2
+                playerMana = 0
                 print("""
                 You don't have mana !
                 
@@ -261,7 +274,7 @@ func forestOfTrollScreen (){
                 exit(1)
             }
         } else if input == "3" {
-            print("You have 1 shield that protect from monster attack, your health now \(playerHealth)")
+            shield()
         } else if input == "4" {
             healWoundScreen()
         } else if input == "5" {
@@ -274,12 +287,14 @@ func forestOfTrollScreen (){
 }
 
 func mountainOfGolemScreen(){
+    print("""
+        As you make your way throught the rugged mountain terrain, you cal feel the child of the wind bitting at your skin. Suddenly, you hear a sound that make you freeze in your tracks. That's when you see it - a massive, snarling Golem emerging from the shadows.
+        """)
     while true{
         print("""
-        As you make your way throught the rugged mountain terrain, you cal feel the child of the wind bitting at your skin. Suddenly, you hear a sound that make you freeze in your tracks. That's when you see it - a massive, snarling Golem emerging from the shadows.
         
-        😈 Name: Golem x1
-        😈 Health : \(playerHealth)
+        😈 Name: \(monsterName[1]) x\(golemAmount)
+        😈 Health : \(golemHealth)
         
         Choose your action:
         [1] Physical Attack. No mana required. Deal 5pt of damage.
@@ -294,13 +309,58 @@ func mountainOfGolemScreen(){
         """)
         input = readLine()
         if input == "1" {
-            
+            if playerHealth > 0 && golemHealth > 0 {
+                golemHealth -= 5
+                playerHealth -= 2
+                if let physicalAttack = playerSkills["physicalAttack"] {
+                    print("You attacked with \(physicalAttack) physical attack monster by 5")
+                }
+                print("""
+                
+                You attacked by monster, your health now is \(playerHealth)
+                """)
+            } else if playerHealth <= 0 && golemHealth > 0 {
+                print("You died & you lose from battle !!!")
+                exit(1)
+            } else if golemHealth <= 0 && playerHealth > 0 {
+                print("You win from the battle")
+            } else if golemHealth <= 0 && playerHealth <= 0 {
+                print("You died & the match is draw!")
+                exit(1)
+            }
         } else if input == "2" {
-            
+            if playerHealth > 0 && golemHealth > 0 && playerMana > 0 {
+                golemHealth -= 50
+                meteorAttack()
+                if let skill = playerSkills["skill"]{
+                    print("You attacked monster with \(skill) by 50 damage")
+                }
+                print("""
+                
+                You attacked by monster, your health now is \(playerHealth) and your mana is \(playerMana)
+                """)
+            } else if playerMana <= 0 {
+                playerHealth -= 2
+                playerMana = 0
+                print("""
+                You don't have mana !
+                
+                You attacked by monster, your health now is \(playerHealth) and your mana is \(playerMana)
+                """)
+            } else if playerHealth <= 0 && golemHealth > 0 {
+                print("You died & you lose from battle !!!")
+                exit(1)
+            } else if golemHealth <= 0 && playerHealth > 0 {
+                print("You win from the battle")
+                break
+            } else if golemHealth <= 0 && playerHealth <= 0 {
+                print("You died & the match is draw!")
+                exit(1)
+            }
         } else if input == "3" {
-            
+            shield()
         } else if input == "4" {
-            
+            healWoundScreen()
         } else if input == "5" {
             
         } else if input == "6" {
@@ -333,4 +393,20 @@ func fleeFromBattleScreen(){
             continue
         }
     }
+}
+
+// Battle function
+
+func meteorAttack(){
+    playerHealth -= 2
+    playerMana -= 15
+}
+
+func shield(){
+    print("You have 1 shield that protect from monster attack, your health now \(playerHealth)")
+}
+
+func healing(){
+    playerHealth += 20
+    playerHealthPotion -= 1
 }
