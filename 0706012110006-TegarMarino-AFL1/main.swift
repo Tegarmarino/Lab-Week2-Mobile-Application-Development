@@ -1,27 +1,27 @@
-//
-//  main.swift
-//  RPG Battle
-//
-//  Created by Tegar Marino on 28/02/23.
-//
+// Keyword (Memuat block - block function)
+// Pemanggilan func (Membuat logic untuk pemanggilan function utama)
+// Screen function (Memuat semua function yg berhubungan dengan screen / User interface)
+// Troll battle function (Memuat semua function yg berhubungan dengan Logic / Program battle dengan monster troll)
+// Golem battle function (Memuat semua function yg berhubungan dengan Logic / Program battle dengan monster golem)
+// Basic battle function (Membuat semua function yg berhunungan dengan Logic basic battle)
 
 import Foundation
 
 // Tegar marino final
 
-//Variable
+// Variable
 let alphabetSet = CharacterSet.letters
 var input: String? = nil
 
 
-//User variable
+//User variable / attributes
 var playerHealth = 100
 var playerMana = 50
 var playerHealthPotion = 5
 var playerElixir = 5
 var playerUsername: String?
 
-//Monster variable
+//Monster variable / attributes
 var monsterName: [String] = ["Troll", "Golem"]
 var trollHealth = 0
 var trollAmount = 1
@@ -38,6 +38,8 @@ journeyScreen()
 
 
 // Screen function
+
+// Function untuk opening screen
 func openingScreen(){
     while true {
         print("""
@@ -56,6 +58,7 @@ func openingScreen(){
     }
 }
 
+// Function untuk welcome screen
 func welcomeScreen(){
     while true {
         print()
@@ -82,6 +85,7 @@ func welcomeScreen(){
     }
 }
 
+// Function untuk journey screen
 func journeyScreen(){
     while true {
         print("""
@@ -123,6 +127,7 @@ func journeyScreen(){
     }
 }
 
+// Function untuk player stats screen
 func playerStatsScreen(){
     while true {
         if let fixingOptionalValue = playerUsername{
@@ -158,6 +163,7 @@ func playerStatsScreen(){
     }
 }
 
+// Function untuk heal wound screen & disertai dengan logic untuk heal player
 func healWoundScreen(){
     while true {
         print("""
@@ -202,6 +208,7 @@ func healWoundScreen(){
     }
 }
 
+// Function untuk mana regen screen & disertai untuk logic regen mana
 func manaRegenScreen(){
     while true {
         print("""
@@ -246,6 +253,7 @@ func manaRegenScreen(){
     }
 }
 
+// Function untuk foresst trool screen, disini disertai logic untuk pemanggilan function-function di "Troll battle function"
 func forestOfTrollScreen (){
         print("""
         
@@ -307,6 +315,7 @@ func forestOfTrollScreen (){
     }
 }
 
+// Function untuk foresst trool screen, disini disertai logic untuk pemanggilan function-function di "Golem battle function"
 func mountainOfGolemScreen(){
     print("""
         As you make your way throught the rugged mountain terrain, you cal feel the child of the wind bitting at your skin. Suddenly, you hear a sound that make you freeze in your tracks. That's when you see it - a massive, snarling Golem emerging from the shadows.
@@ -366,6 +375,7 @@ func mountainOfGolemScreen(){
     }
 }
 
+// Function untuk flee from battle screen
 func fleeFromBattleScreen(){
     while true {
         print("""
@@ -390,6 +400,7 @@ func fleeFromBattleScreen(){
 
 // Troll battle function
 
+// Function ini memuat semua logic pemrograman untuk physical attack ke troll
 func physicalAttackToTroll(){
     if playerHealth > 0  && trollHealth != 0{
         trollHealth -= 5
@@ -408,6 +419,7 @@ func physicalAttackToTroll(){
     }
 }
 
+// Function ini memuat semua logic pemrograman untuk meteor attack ke troll
 func meteorAttackToTroll(){
     if playerMana > 15 {
         if playerHealth > 0 && trollHealth != 0 {
@@ -431,6 +443,7 @@ func meteorAttackToTroll(){
     }
 }
 
+// Function ini memuat semua logic pemrograman untuk scan enemy vital attack ke troll, saya menggunakan random untuk scanning
 func VitalAttackToTroll(){
     var randomNum = Int.random(in: 1...2)
     if randomNum == 1 {
@@ -467,6 +480,7 @@ func VitalAttackToTroll(){
 
 // Golem battle function
 
+// Function ini memuat semua logic pemrograman untuk physical attack ke troll
 func physicalAttackToGolem(){
     if playerHealth > 0  && golemHealth != 0{
         golemHealth -= 5
@@ -485,6 +499,7 @@ func physicalAttackToGolem(){
     }
 }
 
+// Function ini memuat semua logic pemrograman untuk meteor attack ke golem
 func meteorAttackToGolem(){
     if playerMana > 15 {
         if playerHealth > 0 && golemHealth != 0 {
@@ -508,6 +523,7 @@ func meteorAttackToGolem(){
     }
 }
 
+// Function ini memuat semua logic pemrograman untuk scan enemy vital attack ke golem, saya menggunakan random untuk scanning
 func VitalAttackToGolem(){
     var randomNum = Int.random(in: 1...2)
     if randomNum == 1 {
@@ -544,10 +560,12 @@ func VitalAttackToGolem(){
 
 // Basic battle function
 
+// Function basic attack dari meteor attack
 func meteorAttack(){
     playerMana -= 15
 }
 
+// Function basic untuk shield
 func shield(){
     if playerMana > 10 {
         playerMana -= 10
@@ -561,16 +579,19 @@ func shield(){
     
 }
 
+// Function basic untuk healing
 func healing(){
     playerHealth += 20
     playerHealthPotion -= 1
 }
 
+// Function basic untuk mana regen
 func manaRegen(){
     playerMana += 10
     playerElixir -= 1
 }
 
+// Function basic untuk enemy attack
 func enemyAttack(){
     playerHealth -= 2
 }
