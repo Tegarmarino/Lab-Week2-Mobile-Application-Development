@@ -394,7 +394,7 @@ func physicalAttackToTroll(){
     if playerHealth > 0  && trollHealth != 0{
         trollHealth -= 5
         enemyAttack()
-        if playerHealth < 0 {
+        if playerHealth <= 0 {
             playerHealth = 0
             print("Your health is \(playerHealth), you lose !!")
             print()
@@ -414,7 +414,7 @@ func meteorAttackToTroll(){
             trollHealth -= 50
             meteorAttack()
             enemyAttack()
-            if playerHealth < 0 {
+            if playerHealth <= 0 {
                 playerHealth = 0
                 print("Your health is \(playerHealth), you lose !!")
                 print()
@@ -450,6 +450,11 @@ func VitalAttackToTroll(){
         if playerHealth > 0 {
             playerHealth -= 20
             print("You attacked by monster by 20")
+            if playerHealth <= 0 {
+                playerHealth = 0
+                print("You lose!")
+                exit(1)
+            }
         } else {
             playerHealth = 0
             print("You lose")
@@ -466,7 +471,7 @@ func physicalAttackToGolem(){
     if playerHealth > 0  && golemHealth != 0{
         golemHealth -= 5
         enemyAttack()
-        if playerHealth < 0 {
+        if playerHealth <= 0 {
             playerHealth = 0
             print("Your health is \(playerHealth), you lose !!")
             print()
@@ -486,7 +491,7 @@ func meteorAttackToGolem(){
             golemHealth -= 50
             meteorAttack()
             enemyAttack()
-            if playerHealth < 0 {
+            if playerHealth <= 0 {
                 playerHealth = 0
                 print("Your health is \(playerHealth), you lose !!")
                 print()
@@ -522,6 +527,11 @@ func VitalAttackToGolem(){
         if playerHealth > 0 {
             playerHealth -= 20
             print("You attacked by monster by 20")
+            if playerHealth <= 0 {
+                playerHealth = 0
+                print("You lose!")
+                exit(1)
+            }
         } else {
             playerHealth = 0
             print("You lose")
