@@ -7,14 +7,16 @@
 
 import Foundation
 
+// Tegar marino final
+
 //Variable
 let alphabetSet = CharacterSet.letters
 var input: String? = nil
 
 
 //User variable
-var playerHealth = 85
-var playerMana = 35
+var playerHealth = 100
+var playerMana = 50
 var playerHealthPotion = 5
 var playerElixir = 5
 var playerUsername: String?
