@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		9B24EE0529AD9E0400436E79 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24EE0429AD9E0400436E79 /* main.swift */; };
+		9BB24E9329C9901F0048F7AC /* programScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB24E9229C9901F0048F7AC /* programScreens.swift */; };
+		9BB24E9529C993980048F7AC /* skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB24E9429C993980048F7AC /* skills.swift */; };
+		9BB24E9729CD657F0048F7AC /* enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB24E9629CD657F0048F7AC /* enemy.swift */; };
+		9BB24EA529CD6D690048F7AC /* golem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB24EA429CD6D690048F7AC /* golem.swift */; };
+		9BB24EA729CD6D720048F7AC /* troll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB24EA629CD6D720048F7AC /* troll.swift */; };
+		9BEF040929D6748F0010AD46 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF040829D6748F0010AD46 /* user.swift */; };
+		9BEF040E29D684430010AD46 /* physicalAttackTroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF040D29D684430010AD46 /* physicalAttackTroll.swift */; };
+		9BEF041029D6844F0010AD46 /* meteorAttackTroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF040F29D6844F0010AD46 /* meteorAttackTroll.swift */; };
+		9BEF041229D6845E0010AD46 /* vitalAttackTroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF041129D6845E0010AD46 /* vitalAttackTroll.swift */; };
+		9BEF041429D684AA0010AD46 /* physicalAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF041329D684AA0010AD46 /* physicalAttack.swift */; };
+		9BEF041629D684B70010AD46 /* meteorAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF041529D684B70010AD46 /* meteorAttack.swift */; };
+		9BEF041829D684C80010AD46 /* vitalAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF041729D684C80010AD46 /* vitalAttack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +37,18 @@
 /* Begin PBXFileReference section */
 		9B24EE0129AD9E0400436E79 /* 0706012110006-TegarMarino-AFL1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "0706012110006-TegarMarino-AFL1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B24EE0429AD9E0400436E79 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9BB24E9229C9901F0048F7AC /* programScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = programScreens.swift; sourceTree = "<group>"; };
+		9BB24E9429C993980048F7AC /* skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skills.swift; sourceTree = "<group>"; };
+		9BB24E9629CD657F0048F7AC /* enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enemy.swift; sourceTree = "<group>"; };
+		9BB24EA429CD6D690048F7AC /* golem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = golem.swift; sourceTree = "<group>"; };
+		9BB24EA629CD6D720048F7AC /* troll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troll.swift; sourceTree = "<group>"; };
+		9BEF040829D6748F0010AD46 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		9BEF040D29D684430010AD46 /* physicalAttackTroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = physicalAttackTroll.swift; sourceTree = "<group>"; };
+		9BEF040F29D6844F0010AD46 /* meteorAttackTroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meteorAttackTroll.swift; sourceTree = "<group>"; };
+		9BEF041129D6845E0010AD46 /* vitalAttackTroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalAttackTroll.swift; sourceTree = "<group>"; };
+		9BEF041329D684AA0010AD46 /* physicalAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = physicalAttack.swift; sourceTree = "<group>"; };
+		9BEF041529D684B70010AD46 /* meteorAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meteorAttack.swift; sourceTree = "<group>"; };
+		9BEF041729D684C80010AD46 /* vitalAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalAttack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +81,53 @@
 		9B24EE0329AD9E0400436E79 /* 0706012110006-TegarMarino-AFL1 */ = {
 			isa = PBXGroup;
 			children = (
+				9BB24EA329CD6D4A0048F7AC /* enemy */,
 				9B24EE0429AD9E0400436E79 /* main.swift */,
+				9BB24E9A29CD6AC30048F7AC /* Skills */,
+				9BB24E9229C9901F0048F7AC /* programScreens.swift */,
+				9BEF040829D6748F0010AD46 /* user.swift */,
 			);
 			path = "0706012110006-TegarMarino-AFL1";
+			sourceTree = "<group>";
+		};
+		9BB24E9A29CD6AC30048F7AC /* Skills */ = {
+			isa = PBXGroup;
+			children = (
+				9BEF040C29D684210010AD46 /* Golem */,
+				9BEF040B29D6841A0010AD46 /* Troll */,
+				9BB24E9429C993980048F7AC /* skills.swift */,
+			);
+			path = Skills;
+			sourceTree = "<group>";
+		};
+		9BB24EA329CD6D4A0048F7AC /* enemy */ = {
+			isa = PBXGroup;
+			children = (
+				9BB24E9629CD657F0048F7AC /* enemy.swift */,
+				9BB24EA429CD6D690048F7AC /* golem.swift */,
+				9BB24EA629CD6D720048F7AC /* troll.swift */,
+			);
+			path = enemy;
+			sourceTree = "<group>";
+		};
+		9BEF040B29D6841A0010AD46 /* Troll */ = {
+			isa = PBXGroup;
+			children = (
+				9BEF040D29D684430010AD46 /* physicalAttackTroll.swift */,
+				9BEF040F29D6844F0010AD46 /* meteorAttackTroll.swift */,
+				9BEF041129D6845E0010AD46 /* vitalAttackTroll.swift */,
+			);
+			path = Troll;
+			sourceTree = "<group>";
+		};
+		9BEF040C29D684210010AD46 /* Golem */ = {
+			isa = PBXGroup;
+			children = (
+				9BEF041329D684AA0010AD46 /* physicalAttack.swift */,
+				9BEF041529D684B70010AD46 /* meteorAttack.swift */,
+				9BEF041729D684C80010AD46 /* vitalAttack.swift */,
+			);
+			path = Golem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +188,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEF040929D6748F0010AD46 /* user.swift in Sources */,
+				9BB24EA529CD6D690048F7AC /* golem.swift in Sources */,
+				9BEF041829D684C80010AD46 /* vitalAttack.swift in Sources */,
+				9BB24E9729CD657F0048F7AC /* enemy.swift in Sources */,
+				9BB24E9329C9901F0048F7AC /* programScreens.swift in Sources */,
 				9B24EE0529AD9E0400436E79 /* main.swift in Sources */,
+				9BB24EA729CD6D720048F7AC /* troll.swift in Sources */,
+				9BB24E9529C993980048F7AC /* skills.swift in Sources */,
+				9BEF041629D684B70010AD46 /* meteorAttack.swift in Sources */,
+				9BEF041029D6844F0010AD46 /* meteorAttackTroll.swift in Sources */,
+				9BEF040E29D684430010AD46 /* physicalAttackTroll.swift in Sources */,
+				9BEF041429D684AA0010AD46 /* physicalAttack.swift in Sources */,
+				9BEF041229D6845E0010AD46 /* vitalAttackTroll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
