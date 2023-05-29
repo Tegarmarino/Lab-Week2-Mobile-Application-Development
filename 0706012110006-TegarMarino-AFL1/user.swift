@@ -9,7 +9,7 @@ import Foundation
 
 struct User {
     
-    //User variable / attributes
+    //User variable / attribute
     var playerHealth = 100
     var playerMana = 50
     var playerHealthPotion = 5
